@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Embed Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Test Page for Embedded Chat Widget</h1>
+        <p>This is a test page to verify the embedded Monta chat widget works correctly.</p>
+        <p>The chat widget should:</p>
+        <ul>
+            <li>Auto-open after 1 second</li>
+            <li>Hide the launcher button when the chat is open</li>
+            <li>Be centered on mobile viewports (≤768px)</li>
+            <li>Show the launcher button when chat is closed</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.</p>
+    </div>
+
+    <!-- Embed the chat widget -->
+    <script src="embed.js"></script>
+</body>
+
+</html>

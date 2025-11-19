@@ -314,7 +314,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .chat-window {
         width: calc(100vw - 2rem);
         right: 1rem;

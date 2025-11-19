@@ -61,6 +61,14 @@
             box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
         }
 
+        /* Hide launcher when chat is open */
+        .monta-chat-window.open ~ .monta-chat-launcher {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+
         .monta-chat-launcher svg {
             color: white;
         }
@@ -99,7 +107,7 @@
         /* ... (Header and other styles remain same) ... */
 
         /* Mobile styles */
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .monta-chat-widget-container {
                 bottom: 20px !important;
                 left: 50% !important;
