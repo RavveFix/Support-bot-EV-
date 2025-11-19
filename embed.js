@@ -14,20 +14,27 @@
     style.textContent = `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
         
+        /* Reset and base styles */
+        .monta-chat-widget-container,
         .monta-chat-widget-container * {
-            box-sizing: border-box;
+            box-sizing: border-box !important;
             margin: 0;
             padding: 0;
         }
 
+        /* Main container - fixed positioning with high z-index */
         .monta-chat-widget-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999999;
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            left: auto !important;
+            top: auto !important;
+            z-index: 2147483647 !important; /* Maximum z-index */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            pointer-events: none !important; /* Allow clicks through container */
         }
 
+        /* Launcher button */
         .monta-chat-launcher {
             width: 60px;
             height: 60px;
@@ -41,6 +48,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             position: relative;
+            pointer-events: auto !important; /* Enable clicks on button */
         }
 
         .monta-chat-launcher:hover {
@@ -52,32 +60,38 @@
             color: white;
         }
 
+        /* Chat window */
         .monta-chat-window {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
+            position: fixed !important;
+            bottom: 100px !important;
+            right: 20px !important;
+            left: auto !important;
+            top: auto !important;
             width: 380px;
             max-width: calc(100vw - 40px);
             height: 600px;
             max-height: calc(100vh - 140px);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             opacity: 0;
             transform: translateY(20px) scale(0.95);
-            pointer-events: none;
+            pointer-events: none !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2147483647 !important;
         }
 
         .monta-chat-window.open {
             opacity: 1;
             transform: translateY(0) scale(1);
-            pointer-events: all;
+            pointer-events: auto !important; /* Enable clicks when open */
         }
 
+        /* Header */
         .monta-chat-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -86,6 +100,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .monta-chat-header-info {
@@ -131,9 +146,11 @@
             opacity: 1;
         }
 
+        /* Messages area */
         .monta-chat-messages {
             flex: 1;
             overflow-y: auto;
+            overflow-x: hidden;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -171,6 +188,7 @@
             border-radius: 16px;
             font-size: 14px;
             line-height: 1.5;
+            word-wrap: break-word;
         }
 
         .monta-message.user .monta-message-content {
@@ -192,9 +210,11 @@
             padding: 0 4px;
         }
 
+        /* Input area */
         .monta-chat-input-area {
             padding: 16px;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
         }
 
         .monta-chat-form {
@@ -229,28 +249,38 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.2s;
+            flex-shrink: 0;
         }
 
         .monta-send-btn:hover {
             transform: scale(1.1);
         }
 
+        /* Mobile styles */
         @media (max-width: 480px) {
             .monta-chat-widget-container {
-                bottom: 20px;
-                left: 50%;
-                right: auto;
+                bottom: 20px !important;
+                left: 50% !important;
+                right: auto !important;
                 transform: translateX(-50%);
             }
 
             .monta-chat-window {
-                bottom: 0;
-                right: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                max-height: 100vh;
+                position: fixed !important;
+                bottom: 0 !important;
+                right: 0 !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
                 border-radius: 0;
+                transform: translateY(100%);
+            }
+
+            .monta-chat-window.open {
+                transform: translateY(0);
             }
 
             .monta-chat-header {
