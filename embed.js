@@ -425,6 +425,36 @@
                 return "⚠️ <b>Säkerhetsvarning:</b> Jag ser att du skrev in personuppgifter (mejl/telefon). Tänk på att inte dela känslig information här. Jag sparar inget, men för din egen säkerhet! 🔒";
             }
 
+            // 1. Payment Methods & Options
+            if (msg.includes('betalsätt') || msg.includes('betala med') || msg.includes('apple pay') || msg.includes('google pay') || msg.includes('swish') || msg.includes('vipps')) {
+                return "Du kan betala på massor av sätt med Monta! 💸<br><br>📱 <b>I appen:</b> Kort, Apple Pay, Google Pay, MobilePay/Vipps eller Monta Wallet.<br>💳 <b>På plats:</b> Vissa laddare har kortterminal för blipp.<br>🏷️ <b>RFID/Laddbricka:</b> Koppla din bricka till Monta Wallet för smidig start.<br><br>Välj det som passar dig bäst! 🚀";
+            }
+
+            // 2. Reserved Amount (Reservationer)
+            if (msg.includes('reservera') || msg.includes('reserverat') || msg.includes('dragit pengar') || msg.includes('reservation')) {
+                return "Ingen panik! 😅 Det är bara en <b>tillfällig reservation</b> för att säkerställa att det finns täckning för laddningen.<br><br>När laddningen är klar dras <b>bara</b> det faktiska beloppet för elen du laddade. Resten släpps direkt tillbaka till ditt konto (det kan ta några bankdagar beroende på din bank). 🏦✨";
+            }
+
+            // 3. Pricing & Costs
+            if (msg.includes('pris') || msg.includes('kostar') || msg.includes('dyrt') || msg.includes('taxa') || msg.includes('avgift')) {
+                return "Priset bestäms av den som <b>äger laddaren</b> (inte av Monta). 🏠🏢<br><br>💡 <b>Tips:</b> Kolla alltid priset i appen precis innan du startar. Där ser du exakt vad det kostar per kWh just nu, inklusive eventuella avgifter. Inga överraskningar! 🧐";
+            }
+
+            // 4. Refunds & Wallet Management
+            if (msg.includes('återbetalning') || msg.includes('ta ut') || msg.includes('saldo') || msg.includes('wallet') || msg.includes('pengar tillbaka')) {
+                return "Dina pengar i Monta Wallet är dina! 💰<br><br>Vill du ta ut dem? Inga problem:<br>1. Gå till din <b>Wallet</b> i appen.<br>2. Välj <b>'Withdraw'</b> (Ta ut).<br>3. Pengarna skickas tillbaka till ditt kort/konto utan avgift.<br><br>Gäller det en återbetalning för en felaktig laddning? Kontakta supporten i appen så hjälper de dig! 🤝";
+            }
+
+            // 5. Troubleshooting: Cable Stuck
+            if (msg.includes('sitter fast') || msg.includes('kabel') || msg.includes('låst') || msg.includes('får inte loss')) {
+                return "Sitter kabeln fast? Testa detta: 🔒<br><br>1. 🔑 <b>Lås upp bilen:</b> Ofta låser bilen kabeln. Lås och lås upp med nyckeln några gånger.<br>2. 🔌 <b>Tryck inåt:</b> Tryck in kabeln hårt i bilen och dra sedan ut.<br>3. 📱 <b>Avsluta i appen:</b> Se till att laddningen verkligen är stoppad i Monta-appen.<br><br>Funkar inget? Leta efter nödöppning (emergency release) i bilens manual eller bagageutrymme. ⚠️";
+            }
+
+            // 6. Troubleshooting: Slow Charging
+            if (msg.includes('långsamt') || msg.includes('sakta') || msg.includes('låg effekt') || msg.includes('kw')) {
+                return "Går det segt? 🐢 Det kan bero på flera saker:<br><br>1. ❄️ <b>Kallt batteri:</b> Kyla gör laddningen långsammare.<br>2. 🔋 <b>Hög batterinivå:</b> Över 80% går det ofta mycket långsammare.<br>3. ⚡️ <b>Laddarens maxeffekt:</b> Bilen kan inte ta emot mer än vad laddaren (eller bilen själv) klarar av.<br>4. ⚖️ <b>Lastbalansering:</b> Om många laddar samtidigt kan effekten delas.<br><br>Kolla i appen vilken effekt du får just nu! 📊";
+            }
+
             if (msg.includes('apollo') || (msg.includes('payter') && msg.includes('skärm'))) {
                 return "Aha, Payter Apollo! 🖥️ Den har en smidig pekskärm. Så här gör du:<br><br>1. 🔌 <b>Koppla in bilen:</b> Sätt i kabeln först.<br>2. 👆 <b>Följ skärmen:</b> Den visar instruktioner (t.ex. 'Present Card').<br>3. 💳 <b>Blippa/Sätt i kortet:</b> Använd blipp eller chip. Slå PIN-kod på skärmen om det behövs.<br>4. ✅ <b>Klart!</b> Skärmen visar 'Approved' och laddningen startar.<br><br>Kvitto? Det får du digitalt via Monta! 📧";
             }
