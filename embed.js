@@ -485,6 +485,11 @@
                 return "Monta-appen är din bästa vän på vägarna! 🚗💨 Ladda ner den, skapa ett konto och vips så har du tillgång till massor av laddare. Du kan starta, stoppa, betala och se all din historik direkt i luren. Smidigt värre! 😎";
             }
 
+            // Support & Contact
+            if (msg.includes('support') || msg.includes('kontakt') || msg.includes('kundtjänst') || msg.includes('ringa')) {
+                return "Behöver du prata med oss? 📞<br><br>Du når Montas support snabbast direkt i appen:<br>1. Öppna <b>Monta-appen</b>.<br>2. Gå till <b>'Mig'</b> (profilen).<br>3. Klicka på <b>'Support'</b>.<br><br>Där kan du chatta med oss eller starta ett ärende dygnet runt! 🕒";
+            }
+
             if (msg.includes('problem') || msg.includes('fel') || msg.includes('funkar inte') || msg.includes('startar inte') || msg.includes('hjälp')) {
                 return "Aj då, teknikstrul? 😅 Ingen fara, vi löser det!<br><br>1. 🔌 <b>Kolla kabeln:</b> Sitter den i ordentligt? Tryck till den!<br>2. 🔄 <b>Starta om:</b> Har du behörighet? Testa starta om laddaren i appen.<br>3. 📞 <b>Support:</b> Funkar det fortfarande inte? Hör av dig till supporten direkt i appen så hjälper de dig vidare!";
             }
