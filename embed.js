@@ -446,6 +446,11 @@
                 return "Cash is king? Nja, inte här! 😉 Du betalar smidigt via Monta-appen (kort, Apple/Google Pay) eller direkt med kortterminaler på plats (blippa bara!). Kvittot? Det landar digitalt, så du slipper pappersstrul! 🌱";
             }
 
+            // How to charge (General)
+            if ((msg.includes('hur') && msg.includes('ladda')) || msg.includes('starta laddning')) {
+                return "Härligt! Så här laddar du med Monta-appen som ett proffs: 📱⚡️<br><br>1. <b>Ladda ner & Skapa konto:</b> Hämta Monta-appen och lägg in ditt kort (Visa/Mastercard) eller koppla Apple/Google Pay.<br>2. 📍 <b>Hitta laddare:</b> Sök upp laddplatsen i kartan.<br>3. 👆 <b>Välj uttag:</b> Klicka på 'Go to payment' (Gå till betalning).<br>4. 🚀 <b>Svep för att starta!</b><br><br>Du kan också använda <b>Monta Wallet</b> för att tanka på pengar i förväg. Smart va? 😉";
+            }
+
             if (msg.includes('app') || msg.includes('ladda ner') || msg.includes('konto') || msg.includes('använda')) {
                 return "Monta-appen är din bästa vän på vägarna! 🚗💨 Ladda ner den, skapa ett konto och vips så har du tillgång till massor av laddare. Du kan starta, stoppa, betala och se all din historik direkt i luren. Smidigt värre! 😎";
             }
