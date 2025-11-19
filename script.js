@@ -77,17 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Payment General & App
-        if (msg.includes('betal') || msg.includes('kort') || msg.includes('kvitto') || msg.includes('pengar')) {
+        if (msg.includes('betal') || msg.includes('kort') || msg.includes('kvitto') || msg.includes('pengar') || msg.includes('qr') || msg.includes('gäst')) {
             if ((msg.includes('kvitto') || msg.includes('hitta')) && msg.includes('hur')) {
                 return "Inga problem! Du hittar dina kvitton digitalt. 🧾<br><br><b>I appen:</b><br>Gå till 'Mina laddningar' i din profil.<br><br><b>Utan app (Gäst):</b><br>Gå till <b>monta.com/receipts</b> (eller sök 'Monta kvitto').<br>Du kan söka på:<br>1. 💳 <b>Kortuppgifter:</b> Sista 4 siffrorna + datum.<br>2. 📍 <b>Plats:</b> Namnet på laddplatsen + datum.<br><br>Smidigt va? 🌱";
             }
-            if (msg.includes('hur') || msg.includes('steg') || msg.includes('app')) {
-                return "Okej, häng med nu! Så här betalar du smidigast i appen: 📱💨<br><br>1. Öppna kartan och hitta din laddare.<br>2. Tryck på <b>'Gå till betalning'</b>.<br>3. Välj ditt kort (eller Apple/Google Pay).<br>4. <b>Svep för att ladda!</b> 🚀<br><br>Psst! Du kan också betala direkt med kortterminalen på plats om det finns en sån. Glöm inte att plugga in kabeln först bara! 🔌";
+
+            // QR / Guest Payment
+            if (msg.includes('qr') || msg.includes('gäst') || msg.includes('utan app') || msg.includes('drop-in')) {
+                return "Självklart! Du kan ladda utan att skapa konto. 🚀<br><br>1. 📷 <b>Skanna QR-koden</b> på laddaren med din mobilkamera.<br>2. 🌐 <b>Välj betalsätt:</b> Du kommer till en webbsida där du kan betala direkt med kort, Apple Pay eller Google Pay.<br>3. ⚡️ <b>Starta laddning!</b><br><br>Kvitto? Det kan du ladda ner direkt efteråt eller hitta på monta.com/receipts senare. Enkelt och smidigt! ✨";
             }
+
+            if (msg.includes('hur') || msg.includes('steg') || msg.includes('app')) {
+                return "Härligt! Så här laddar du med Monta-appen som ett proffs: 📱⚡️<br><br>1. <b>Ladda ner & Skapa konto:</b> Hämta Monta-appen och lägg in ditt kort (Visa/Mastercard) eller koppla Apple/Google Pay.<br>2. 📍 <b>Hitta laddare:</b> Sök upp laddplatsen i kartan.<br>3. 👆 <b>Välj uttag:</b> Klicka på 'Go to payment' (Gå till betalning).<br>4. 🚀 <b>Svep för att starta!</b><br><br>Du kan också använda <b>Monta Wallet</b> för att tanka på pengar i förväg. Smart va? 😉";
+            }
+
             if (msg.includes('kvitto') || msg.includes('hitta')) {
                 return "Inga problem! Du hittar dina kvitton digitalt. 🧾<br><br><b>I appen:</b><br>Gå till 'Mina laddningar' i din profil.<br><br><b>Utan app (Gäst):</b><br>Gå till <b>monta.com/receipts</b> (eller sök 'Monta kvitto').<br>Du kan söka på:<br>1. 💳 <b>Kortuppgifter:</b> Sista 4 siffrorna + datum.<br>2. 📍 <b>Plats:</b> Namnet på laddplatsen + datum.<br><br>Smidigt va? 🌱";
             }
-            return "Cash is king? Nja, inte här! 😉 Du betalar smidigt via Monta-appen (kort, Apple/Google Pay) eller direkt med kortterminaler på plats (blippa bara!). Kvittot? Det landar digitalt, så du slipper pappersstrul! 🌱";
+            return "Du har massor av valmöjligheter! 💸<br><br>📱 <b>Appen:</b> Betala med kort, Apple/Google Pay eller Monta Wallet.<br>📷 <b>QR-kod:</b> Skanna koden på laddaren för drop-in betalning (inget konto krävs!).<br>💳 <b>Terminal:</b> På vissa platser kan du blippa kortet direkt på en terminal.<br><br>Oavsett hur du betalar får du kvitto digitalt. Inget pappersstrul här inte! 🌳";
         }
 
         // App Usage General
