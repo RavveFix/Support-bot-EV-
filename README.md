@@ -1,4 +1,4 @@
-# Support Bot - Monta EV Charging Assistant
+# Support Bot
 
 A lightweight, client-side chat widget that provides expert guidance on Monta's electric vehicle charging payment system.
 
